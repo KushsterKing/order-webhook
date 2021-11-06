@@ -448,16 +448,16 @@
       "type": "object",
       "properties": {
         "status": {
+          "type": "number",
+          "example": 200
+        },
+        "success": {
           "type": "boolean",
           "example": true
         },
-        "status_code": {
+        "message": {
           "type": "string",
-          "example": 200
-        },
-        "token": {
-          "type": "string",
-          "example": "YWZmaWxpYXRlOnBhc3N3b3Jk"
+          "example": "message"
         }
       }
     },
@@ -465,17 +465,17 @@
     "MissingFieldErrorResponse": {
       "type": "object",
       "properties": {
-        "error_code": {
-          "type": "string",
-          "example": "E009"
-        },
         "status": {
+          "type": "number",
+          "example": 400
+        },
+        "success": {
           "type": "boolean",
           "example": false
         },
         "message": {
           "type": "string",
-          "example": "missing field error"
+          "example": "Field email must be a string"
         }
       }
     },
