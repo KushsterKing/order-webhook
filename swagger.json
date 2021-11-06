@@ -1,0 +1,500 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.1.5",
+    "title": "Easylab Api's",
+    "description": "The following page will contain examples and description of the API methods and responses.\n In this document we will look into how to access, and use the API.\n In general the actions you can perform are usually compatible with the Create & Read Only. The API response is a JSON output.\n\n <b>General work flow</b>\n- Register customer\n- Login\n- Create/read reports using the access token received after login\n- Redirect customer to autologin url"
+  },
+  "host": "localhost:5080",
+  "basePath": "/v1/admin",
+  "tags": [
+    {
+      "name": "Easylabs",
+      "description": "API endpoints"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/domains": {
+      "post": {
+        "tags": [
+          "Domains"
+        ],
+        "description": "<b>Creating a domain</b>",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "body",
+            "description": "<b><font color='red'>Mandatory Fields: name</font></b>",
+            "schema": {
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "www.this.com"
+                }
+              }
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorization process",
+            "schema": {
+              "$ref": "#definitions/AuthenticateInstance"
+            }
+          },
+          "401": {
+            "description": "Missing Field",
+            "schema": {
+              "$ref": "#definitions/MissingFieldErrorResponse"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Domains"
+        ],
+        "description": "<b>Getting all domains</b>",
+        "parameters": [
+
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorization process",
+            "schema": {
+              "$ref": "#definitions/AuthenticateInstance"
+            }
+          },
+          "401": {
+            "description": "Missing Field",
+            "schema": {
+              "$ref": "#definitions/MissingFieldErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/domains/{id}": {
+      "put": {
+        "tags": [
+          "Domains"
+        ],
+        "description": "<b>Update a domain with id</b>",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "example": "id"
+            },
+            "description": "id",
+            "required": true
+          },
+          {
+            "name": "domain",
+            "in": "body",
+            "description": "<b><font color='green'>Mandatory Fields: name, isActive</font></b>",
+            "schema": {
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "www.this.com"
+                },
+                "isActive": {
+                  "type": "string",
+                  "example": "www.this.com"
+                }
+              }
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorization process",
+            "schema": {
+              "$ref": "#definitions/AuthenticateInstance"
+            }
+          },
+          "401": {
+            "description": "Missing Field",
+            "schema": {
+              "$ref": "#definitions/MissingFieldErrorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Domains"
+        ],
+        "description": "<b>Delete a domain with id</b>",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "example": "id"
+            },
+            "description": "id",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorization process",
+            "schema": {
+              "$ref": "#definitions/AuthenticateInstance"
+            }
+          },
+          "401": {
+            "description": "Missing Field",
+            "schema": {
+              "$ref": "#definitions/MissingFieldErrorResponse"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Domains"
+        ],
+        "description": "<b>Get a domain with id</b>",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "example": "id"
+            },
+            "description": "id",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorization process",
+            "schema": {
+              "$ref": "#definitions/AuthenticateInstance"
+            }
+          },
+          "401": {
+            "description": "Missing Field",
+            "schema": {
+              "$ref": "#definitions/MissingFieldErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/domains/listen": {
+      "post": {
+        "tags": [
+          "Domains"
+        ],
+        "description": "<b>Authentication with client id and secret key for a particular instance/domain</b>",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "www.this.com"
+            },
+            "description": "url",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorization process",
+            "schema": {
+              "$ref": "#definitions/AuthenticateInstance"
+            }
+          },
+          "401": {
+            "description": "Missing Field",
+            "schema": {
+              "$ref": "#definitions/MissingFieldErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "description": "<b>Authentication with client id and secret key for a particular instance/domain</b>",
+        "parameters": [
+          {
+            "name": "order",
+            "in": "body",
+            "description": "<b><font color='green'>Mandatory Fields: orderId, orderDate, productIds, currency, price, urlOfSale </font></b>",
+            "schema": {
+              "properties": {
+                "orderId": {
+                  "type": "string",
+                  "example": "372861"
+                },
+                "orderDate": {
+                  "type": "string",
+                  "example": "2021-03-02"
+                },
+                "productIds": {
+                  "type": "array",
+                  "example": ["7888", "6414"]
+                },
+                "currency": {
+                  "type": "string",
+                  "example": "USD"
+                },
+                "price": {
+                  "type": "number",
+                  "example": 134
+                },
+                "urlOfSale": {
+                  "type": "string",
+                  "example": "www.this.com"
+                }
+              }
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorization process",
+            "schema": {
+              "$ref": "#definitions/AuthenticateInstance"
+            }
+          },
+          "401": {
+            "description": "Missing Field",
+            "schema": {
+              "$ref": "#definitions/MissingFieldErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SuccessResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean",
+          "example": true
+        },
+        "status_code": {
+          "type": "number",
+          "example": 200
+        },
+        "message": {
+          "type": "string",
+          "example": "Saved Successfully"
+        }
+      }
+    },
+    "UserRegistrationResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean",
+          "example": true
+        },
+        "status_code": {
+          "type": "string",
+          "example": 200
+        },
+        "message": {
+          "type": "string",
+          "example": ""
+        },
+        "data": {
+          "type": "string",
+          "example": {
+            "user_attributes": [
+              "Smoker",
+              "Pregnant"
+            ],
+            "_id": "id",
+            "age": "21",
+            "gender": "female",
+            "last_date_of_test": "2021-01-11T00:00:00.000Z",
+            "sub_domain": "sub_domain",
+            "ip": "14.143.8.238",
+            "createdAt": "2021-02-23T11:50:39.264Z",
+            "__v": 0
+          }
+        },
+        "token": {
+          "type": "string",
+          "example": "YWZmaWxpYXRlOnBhc3N3b3Jk"
+        }
+      }
+    },
+    "UserGetResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean",
+          "example": true
+        },
+        "status_code": {
+          "type": "string",
+          "example": 200
+        },
+        "data": {
+          "type": "string",
+          "example": {
+            "user_attributes": [
+              "Smoker",
+              "Pregnant"
+            ],
+            "_id": "id",
+            "age": "21",
+            "gender": "female",
+            "last_date_of_test": "2021-01-11T00:00:00.000Z",
+            "sub_domain": "sub_domain",
+            "ip": "14.143.8.238",
+            "createdAt": "2021-02-23T11:50:39.264Z",
+            "__v": 0
+          }
+        }
+      }
+    },
+    "GenerateReportResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean",
+          "example": true
+        },
+        "status_code": {
+          "type": "string",
+          "example": 200
+        },
+        "data": {
+          "type": "string",
+          "example": {
+            "name": "TSH",
+            "unit": "mIU/L",
+            "value": 1,
+            "category": "Abnormal, tooHigh",
+            "recommendation": {
+              "significance": "text",
+              "treatment": "text"
+            }
+          }
+        },
+        "pdf_url": {
+          "type": "string",
+          "example": "s3 bucket url"
+        },
+        "customer_id": {
+          "type": "boolean",
+          "example": true
+        },
+        "report_id": {
+          "type": "string",
+          "example": 200
+        },
+        "link_to_open_customer": {
+          "type": "boolean",
+          "example": "https://sub_domain.easylabs.org?user_id=user_id"
+        },
+        "link_to_open_report": {
+          "type": "string",
+          "example": "https://sub_domain.easylabs.org?user_id=user_id&report_id=report_id"
+        }
+      }
+    },
+    "AuthenticateInstance": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean",
+          "example": true
+        },
+        "status_code": {
+          "type": "string",
+          "example": 200
+        },
+        "token": {
+          "type": "string",
+          "example": "YWZmaWxpYXRlOnBhc3N3b3Jk"
+        }
+      }
+    },
+
+    "MissingFieldErrorResponse": {
+      "type": "object",
+      "properties": {
+        "error_code": {
+          "type": "string",
+          "example": "E009"
+        },
+        "status": {
+          "type": "boolean",
+          "example": false
+        },
+        "message": {
+          "type": "string",
+          "example": "missing field error"
+        }
+      }
+    },
+    "InvalidTokenFieldErrorResponse": {
+      "type": "object",
+      "properties": {
+        "error_code": {
+          "type": "string",
+          "example": "E001"
+        },
+        "status": {
+          "type": "boolean",
+          "example": false
+        },
+        "message": {
+          "type": "string",
+          "example": "Invalid Token"
+        }
+      }
+    }
+  }
+}
