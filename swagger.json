@@ -219,7 +219,7 @@
         "tags": [
           "Domains"
         ],
-        "description": "<b>Authentication with client id and secret key for a particular instance/domain</b>",
+        "description": "<b>Listen to the ORDER event for that domain</b>",
         "parameters": [
           {
             "name": "url",
@@ -256,7 +256,7 @@
         "tags": [
           "Orders"
         ],
-        "description": "<b>Authentication with client id and secret key for a particular instance/domain</b>",
+        "description": "<b>Create order and emit an event for customers on checkout page</b>",
         "parameters": [
           {
             "name": "order",
