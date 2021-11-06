@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.1.5",
-    "title": "Easylab Api's",
-    "description": "The following page will contain examples and description of the API methods and responses.\n In this document we will look into how to access, and use the API.\n In general the actions you can perform are usually compatible with the Create & Read Only. The API response is a JSON output.\n\n <b>General work flow</b>\n- Add domains\n- Login\n- Make customers listen to them \n- Create orders for those domains while the customer who are listening to them receives the information"
+    "title": "Order webhook Api's",
+    "description": "The following page will contain examples and description of the API methods and responses.\n In this document we will look into how to access, and use the API.\n In general the actions you can perform are usually compatible with the Create & Read Only. The API response is a JSON output.\n\n <b>General work flow</b>\n- Add domains\n- Make customers listen to them \n- Create orders for those domains while the customer who are listening to them receives the information"
   },
   "host": "blooming-escarpment-98762.herokuapp.com",
   "basePath": "/v1/admin",
